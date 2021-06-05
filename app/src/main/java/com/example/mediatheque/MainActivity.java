@@ -2,21 +2,13 @@ package com.example.mediatheque;
 
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
-
-import com.example.mediatheque.ui.music.MusicFragment;
-import com.example.mediatheque.ui.music.MusicViewModel;
 import com.google.android.material.navigation.NavigationView;
-
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.mediatheque.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {

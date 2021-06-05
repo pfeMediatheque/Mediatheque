@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity"
+
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="50dp">
+
+  <de.hdodenhof.circleimageview.CircleImageView
+      android:id="@+id/profileImage_RegisterPage"
+      android:layout_width="150dp"
+      android:layout_height="150dp"
+      android:layout_marginBottom="60dp"
+      android:src="@drawable/avatar">
+  </de.hdodenhof.circleimageview.CircleImageView>
+
+  <com.google.android.material.textfield.TextInputLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:focusable="true"
+      android:focusableInTouchMode="true">
+
+    <EditText
+        android:id="@+id/editTextUsername_RegisterPage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/username"
+        android:inputType="text" />
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <com.google.android.material.textfield.TextInputLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:focusable="true"
+      android:focusableInTouchMode="true">
+
+    <EditText
+        android:id="@+id/editTextMail_RegisterPage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/mail"
+        android:inputType="text" />
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <com.google.android.material.textfield.TextInputLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:focusable="true"
+      android:focusableInTouchMode="true">
+
+    <EditText
+        android:id="@+id/editTextPassword_RegisterPage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+
+        android:hint="@string/password" />
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <com.google.android.material.textfield.TextInputLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:focusable="true"
+      android:focusableInTouchMode="true">
+
+    <EditText
+        android:id="@+id/editTextCnfPassword_RegisterPage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="@string/confim_password" />
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <Button
+      android:id="@+id/buttonRegister_RegisterPage"
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:layout_marginTop="15dp"
+      android:background="@drawable/button_rounded"
+      android:text="@string/register"
+      android:textColor="#FFFFFF" />
+
+  <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:text="@string/already_registered" />
+
+    <TextView
+        android:id="@+id/textViewLogin_RegisterPage"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:paddingLeft="3dp"
+        android:text="@string/login"
+        android:textColor="#264653"
+        android:textStyle="bold"
+        android:paddingStart="3dp"
+        tools:ignore="RtlSymmetry" />
+
+  </LinearLayout>
+
+</LinearLayout>
