@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mediatheque">
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.mediatheque.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.Mediatheque.NoActionBar">
             <intent-filter>
