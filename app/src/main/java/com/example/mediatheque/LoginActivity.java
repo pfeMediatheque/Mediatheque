@@ -11,11 +11,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText editTextMail_LoginPage,editTextPassword_LoginPage;
     private FirebaseAuth mAuth;
+    private FirebaseUser mailVerificationCurrentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,30 +34,30 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         mAuth = FirebaseAuth.getInstance();                                                                         // initialise instance for the Firebase Authenticator
 
+        mailVerificationCurrentUser = FirebaseAuth.getInstance().getCurrentUser();                                  // initialise the current user for the mail verification
+
         TextView textViewRegister_LoginPage = findViewById(R.id.textViewRegister_LoginPage);                        // initialise textViewRegister_LoginPage
         textViewRegister_LoginPage.setOnClickListener(this);
 
-        if (mAuth.getCurrentUser() != null){                                                                        // if user is already login go directly to the main page
-            Intent mainPage = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(mainPage);
+        if (mAuth.getCurrentUser() != null){                                                                        // if the user is already registered so if the current user is not empty
+            if (Objects.requireNonNull(mailVerificationCurrentUser).isEmailVerified()){                             // if the user has verified his email address
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));                    // launches the application directly on the main page - the user will not have to log in each time
+            }
         }
-
     }
 
     @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-
             case R.id.textViewRegister_LoginPage:                                                                   // when the user clicks on the registration button on the home page
-                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));               // it sends them to the registration page
+                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));               // redirects the user to the registration page
                 break;
 
             case R.id.buttonLogin_LoginPage:                                                                        //  when the user clicks on the login button on the home page
                 buttonLoginClicked();                                                                               // start the login process
                 break;
         }
-
     }
 
     private void buttonLoginClicked() {
@@ -72,13 +76,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             return;
         }
 
-        mAuth.signInWithEmailAndPassword(email,pwd).addOnCompleteListener(task -> {                                 // connect the user with his email and password
-            if (task.isSuccessful()){                                                                               // when the task was successfully finish
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));                    // redirects the user to the main page
-            }else {                                                                                                 // when the task was failed
-                Toast.makeText(LoginActivity.this,                                                          // show a failure message
-                        "Failed to login, please check your information.",
-                        Toast.LENGTH_SHORT).show();
+        mAuth.signInWithEmailAndPassword(email,pwd).addOnCompleteListener(task -> {                                // connect the user with his email and password
+            if (task.isSuccessful()) {                                                                             // when the task was successfully finish
+                if (mailVerificationCurrentUser.isEmailVerified()){                                                // if the user has verified his email address
+                    startActivity(new Intent(LoginActivity.this, MainActivity.class));               // redirects the user to the main page
+                }else {                                                                                            // if email is not verified
+                    Toast.makeText(LoginActivity.this,                                                     // show a failure message
+                            "Please verify your email address.",
+                            Toast.LENGTH_LONG).show();
+                }
+            }else{                                                                                                 // if the information provided does not correspond to any registered account
+                Toast.makeText(LoginActivity.this,                                                         // show a failure message
+                        "Please check the information provided.",
+                        Toast.LENGTH_LONG).show();
             }
         });
     }

@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
-
     private Button itemLogout_Main;
 
     @Override
@@ -71,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.itemLogout_Main){
             FirebaseAuth.getInstance().signOut();                                                                   // logout the current user
-            startActivity(new Intent(MainActivity.this, LoginActivity.class));                       // return to the login page
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));                       // redirects the user to the login page
         }
         return super.onOptionsItemSelected(item);
     }

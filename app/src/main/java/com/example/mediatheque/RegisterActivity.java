@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
@@ -21,7 +22,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private static final String EMAIL_KEY = "email";                                                                // name of the EMAIL_KEY column in the table
     private FirebaseFirestore db;                                                                                   // object reference for Firebase Firestore
     private FirebaseAuth mAuth;                                                                                     // object reference for Firebase Authenticator
-
+    private FirebaseUser mailVerificationCurrentUser;
     private EditText editTextUsername_RegisterPage,editTextMail_RegisterPage,
             editTextPassword_RegisterPage,editTextCnfPassword_RegisterPage;
 
@@ -32,6 +33,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         db = FirebaseFirestore.getInstance();                                                                       // initialise instance for the Firebase Firestore
         mAuth = FirebaseAuth.getInstance();                                                                         // initialise instance for the Firebase Authenticator
+        mailVerificationCurrentUser = FirebaseAuth.getInstance().getCurrentUser();                                  // initialise the current user for the mail verification
 
         editTextUsername_RegisterPage = findViewById(R.id.editTextUsername_RegisterPage);                           // initialise editTextUsername_RegisterPage
         editTextMail_RegisterPage = findViewById(R.id.editTextMail_RegisterPage);                                   // initialise editTextMail_RegisterPage
@@ -115,17 +117,20 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     userCollection.put(USERNAME_KEY,username);                                                          // put the value of username in the USERNAME_KEY column
                     userCollection.put(EMAIL_KEY,email);                                                                // put the value of email in the EMAIL_KEY column
 
+                    assert mailVerificationCurrentUser != null;
+                    mailVerificationCurrentUser.sendEmailVerification();                                                // sends an email to the current user's address
+
                     db.collection("userCollection").add(userCollection)                                    // in database adds collection (table) named userCollection
                             .addOnSuccessListener(documentReference -> {                                                // when the task was successfully finish
                                 Toast.makeText(RegisterActivity.this,                                           // show a successfully message
-                                        "User has been registered successfully.",
-                                        Toast.LENGTH_SHORT).show();
+                                        "Check your email address to activate your account.",
+                                        Toast.LENGTH_LONG).show();
                                 startActivity(new Intent(RegisterActivity.this, LoginActivity.class));    // redirects the user to the login page
 
                             }).addOnFailureListener(documentReference -> {                                              // when the task was failed
                         Toast.makeText(RegisterActivity.this,                                                   // show a failure message
                                 "Registration failed - Connection error with the database.",
-                                Toast.LENGTH_SHORT).show();
+                                Toast.LENGTH_LONG).show();
                     });
                 });
         
