@@ -44,13 +44,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         TextView alreadyRegistered = findViewById(R.id.textViewLogin_RegisterPage);                                 // initialise textViewLogin_RegisterPage
         alreadyRegistered.setOnClickListener(this);
 
-        /*
-        if (mAuth.getCurrentUser() != null){                                                                        // if user is already login go directly to the main page
-            Intent mainPage = new Intent(RegisterActivity.this, MainActivity.class);
-            startActivity(mainPage);
-        }
-        */
-
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -59,7 +52,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         switch (view.getId()) {
 
             case R.id.textViewLogin_RegisterPage:                                                                   // when the user clicks on the already registered button on the register page
-                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));               // it sends them to the login page
                 break;
 
             case R.id.buttonRegister_RegisterPage:                                                                  // when the user clicks on the register button

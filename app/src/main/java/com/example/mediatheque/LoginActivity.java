@@ -1,25 +1,16 @@
 package com.example.mediatheque;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.example.mediatheque.ui.book.BookFragment;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
-import org.jetbrains.annotations.NotNull;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -41,6 +32,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         TextView textViewRegister_LoginPage = findViewById(R.id.textViewRegister_LoginPage);                        // initialise textViewRegister_LoginPage
         textViewRegister_LoginPage.setOnClickListener(this);
+
+        if (mAuth.getCurrentUser() != null){                                                                        // if user is already login go directly to the main page
+            Intent mainPage = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(mainPage);
+        }
+
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -56,6 +53,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 buttonLoginClicked();                                                                               // start the login process
                 break;
         }
+
     }
 
     private void buttonLoginClicked() {
