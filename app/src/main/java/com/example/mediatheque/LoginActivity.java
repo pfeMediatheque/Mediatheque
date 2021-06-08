@@ -92,13 +92,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         lAuth.signInWithEmailAndPassword(email,pwd).addOnCompleteListener(task -> {                                // connect the user with his email and password
             if (task.isSuccessful()) {                                                                             // when the task was successfully finish
-                if (mailVerificationCurrentUser.isEmailVerified()){                                                // if the user has verified his email address
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));               // redirects the user to the main page
-                }else {                                                                                            // if email is not verified
-                    Toast.makeText(LoginActivity.this,                                                     // show a failure message
-                            "Please verify your email address.",
-                            Toast.LENGTH_LONG).show();
-                }
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));                  // redirects the user to the main page
             }else{                                                                                                 // if the information provided does not correspond to any registered account
                 Toast.makeText(LoginActivity.this,                                                         // show a failure message
                         "Please check the information provided.",

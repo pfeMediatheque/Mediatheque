@@ -66,21 +66,18 @@ public class ResetPasswordActivity extends AppCompatActivity implements View.OnC
             editTextMail_ResetPasswordPage.requestFocus();                                                          // focus on the input field email
         }
 
-        //if (mailVerificationCurrentUserForPassword.isEmailVerified()){
-            rAuth.sendPasswordResetEmail(emailForResetPassword).addOnCompleteListener(task -> {
-                if (task.isSuccessful()){                                                                                  // when the task was successfully finish
-                    Toast.makeText(ResetPasswordActivity.this,                                                     // show a successfully message
-                            "Please verify your email address.",
-                            Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(ResetPasswordActivity.this, LoginActivity.class));
-                }else{                                                                                                     // if the email address does not exist
-                    Toast.makeText(ResetPasswordActivity.this,                                                     // show a error message
-                            "This email address does not exist, please check your information.",
-                            Toast.LENGTH_LONG).show();
-                }
-            });
-        //}
-
+        rAuth.sendPasswordResetEmail(emailForResetPassword).addOnCompleteListener(task -> {
+            if (task.isSuccessful()){                                                                                  // when the task was successfully finish
+                Toast.makeText(ResetPasswordActivity.this,                                                     // show a successfully message
+                        "Please check your email address.",
+                        Toast.LENGTH_LONG).show();
+                startActivity(new Intent(ResetPasswordActivity.this, LoginActivity.class));
+            }else{                                                                                                     // if the email address does not exist
+                Toast.makeText(ResetPasswordActivity.this,                                                     // show a error message
+                        "This email address does not exist, please check your information.",
+                        Toast.LENGTH_LONG).show();
+            }
+        });
 
     }
 }

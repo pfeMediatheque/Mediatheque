@@ -117,14 +117,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     userCollection.put(USERNAME_KEY,username);                                                          // put the value of username in the USERNAME_KEY column
                     userCollection.put(EMAIL_KEY,email);                                                                // put the value of email in the EMAIL_KEY column
 
-                    assert mailVerificationCurrentUser != null;
-                    mailVerificationCurrentUser.sendEmailVerification();                                                // sends an email to the current user's address
-
                     db.collection("userCollection").add(userCollection)                                    // in database adds collection (table) named userCollection
                             .addOnSuccessListener(documentReference -> {                                                // when the task was successfully finish
                                 Toast.makeText(RegisterActivity.this,                                           // show a successfully message
-                                        "Check your email address to activate your account.",
+                                        "Verify your email address to stay connect on the application.",
                                         Toast.LENGTH_LONG).show();
+                                assert mailVerificationCurrentUser != null;
+                                mailVerificationCurrentUser.sendEmailVerification();                                                // sends an email to the current user's address
                                 startActivity(new Intent(RegisterActivity.this, LoginActivity.class));    // redirects the user to the login page
 
                             }).addOnFailureListener(documentReference -> {                                              // when the task was failed
