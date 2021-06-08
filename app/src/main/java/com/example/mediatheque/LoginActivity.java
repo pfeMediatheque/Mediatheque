@@ -20,7 +20,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private EditText editTextMail_LoginPage,editTextPassword_LoginPage;
     private FirebaseAuth lAuth;
-    private FirebaseUser mailVerificationCurrentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +40,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         lAuth = FirebaseAuth.getInstance();                                                                         // initialise instance for the Firebase Authenticator
 
-        mailVerificationCurrentUser = FirebaseAuth.getInstance().getCurrentUser();                                  // initialise the current user for the mail verification
+        FirebaseUser mailVerificationCurrentUser = FirebaseAuth.getInstance().getCurrentUser();                                  // initialise the current user for the mail verification
 
         if (lAuth.getCurrentUser() != null){                                                                        // if the user is already registered so if the current user is not empty
             if (Objects.requireNonNull(mailVerificationCurrentUser).isEmailVerified()){                             // if the user has verified his email address
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));                    // launches the application directly on the main page - the user will not have to log in each time
+            }else {
+                Toast.makeText(LoginActivity.this,                                           // show a successfully message
+                        "Please verify your email address to stay connect on the application.",
+                        Toast.LENGTH_LONG).show();
+                mailVerificationCurrentUser.sendEmailVerification();
             }
         }
     }

@@ -12,13 +12,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class ResetPasswordActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText editTextMail_ResetPasswordPage;
     private FirebaseAuth rAuth;
-    private FirebaseUser mailVerificationCurrentUserForPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
