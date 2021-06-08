@@ -21,8 +21,11 @@
     <string name="not_registered">Do not have an account yet ?</string>
     <string name="register">Register</string>
     <string name="reset_password">You forget your password ?</string>
+    <string name="confim_password">Confim password</string>
+    <string name="already_registered">Already registered ?</string>
+
+    <string name="title_resetPassword">Reset your password</string>
     <string name="reset_it">Reset it</string>
-    <string name="confim_password">Confim Password</string>
-    <string name="already_registered">Already Registered ?</string>
-    <string name="stay_connect">Stay connect</string>
+    <string name="already_reset">already reset ?</string>
+
 </resources>
