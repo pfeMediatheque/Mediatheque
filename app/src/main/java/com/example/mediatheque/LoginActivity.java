@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,7 +19,7 @@ import java.util.Objects;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText editTextMail_LoginPage,editTextPassword_LoginPage;
-    private FirebaseAuth mAuth;
+    private FirebaseAuth lAuth;
     private FirebaseUser mailVerificationCurrentUser;
 
     @Override
@@ -32,14 +33,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         Button buttonLogin = findViewById(R.id.buttonLogin_LoginPage);                                              // initialise buttonLogin_LoginPage
         buttonLogin.setOnClickListener(this);
 
-        mAuth = FirebaseAuth.getInstance();                                                                         // initialise instance for the Firebase Authenticator
-
-        mailVerificationCurrentUser = FirebaseAuth.getInstance().getCurrentUser();                                  // initialise the current user for the mail verification
-
         TextView textViewRegister_LoginPage = findViewById(R.id.textViewRegister_LoginPage);                        // initialise textViewRegister_LoginPage
         textViewRegister_LoginPage.setOnClickListener(this);
 
-        if (mAuth.getCurrentUser() != null){                                                                        // if the user is already registered so if the current user is not empty
+        TextView textViewResetPassword_LoginPage = findViewById(R.id.textViewResetPassword_LoginPage);              // initialise textViewResetPassword_LoginPage
+        textViewResetPassword_LoginPage.setOnClickListener(this);
+
+        lAuth = FirebaseAuth.getInstance();                                                                         // initialise instance for the Firebase Authenticator
+
+        mailVerificationCurrentUser = FirebaseAuth.getInstance().getCurrentUser();                                  // initialise the current user for the mail verification
+
+        if (lAuth.getCurrentUser() != null){                                                                        // if the user is already registered so if the current user is not empty
             if (Objects.requireNonNull(mailVerificationCurrentUser).isEmailVerified()){                             // if the user has verified his email address
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));                    // launches the application directly on the main page - the user will not have to log in each time
             }
@@ -52,6 +56,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         switch (view.getId()){
             case R.id.textViewRegister_LoginPage:                                                                   // when the user clicks on the registration button on the home page
                 startActivity(new Intent(LoginActivity.this, RegisterActivity.class));               // redirects the user to the registration page
+                break;
+
+            case R.id.textViewResetPassword_LoginPage:                                                              // when the user clicks on the reset password button on the home page
+                startActivity(new Intent(LoginActivity.this, ResetPasswordActivity.class));          // redirects the user to the reset password page
                 break;
 
             case R.id.buttonLogin_LoginPage:                                                                        //  when the user clicks on the login button on the home page
@@ -70,13 +78,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             return;
         }
 
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){                                                       // if the email not match with the structure of a email
+            editTextMail_LoginPage.setError("Please provide valid email.");                                         // shows an error message
+            editTextMail_LoginPage.requestFocus();                                                                  // focus on the input field email
+            return;
+        }
+
         if (pwd.isEmpty()){                                                                                         // if the password is empty
             editTextPassword_LoginPage.setError("Password is required.");                                           // shows an error message
             editTextPassword_LoginPage.requestFocus();                                                              // focus on the input field password
             return;
         }
 
-        mAuth.signInWithEmailAndPassword(email,pwd).addOnCompleteListener(task -> {                                // connect the user with his email and password
+        lAuth.signInWithEmailAndPassword(email,pwd).addOnCompleteListener(task -> {                                // connect the user with his email and password
             if (task.isSuccessful()) {                                                                             // when the task was successfully finish
                 if (mailVerificationCurrentUser.isEmailVerified()){                                                // if the user has verified his email address
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));               // redirects the user to the main page
