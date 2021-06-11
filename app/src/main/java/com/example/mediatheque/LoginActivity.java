@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         lAuth = FirebaseAuth.getInstance();                                                                         // initialise instance for the Firebase Authenticator
 
-        FirebaseUser mailVerificationCurrentUser = FirebaseAuth.getInstance().getCurrentUser();                                  // initialise the current user for the mail verification
+        FirebaseUser mailVerificationCurrentUser = FirebaseAuth.getInstance().getCurrentUser();                     // initialise the current user for the mail verification
 
         if (lAuth.getCurrentUser() != null){                                                                        // if the user is already registered so if the current user is not empty
             if (Objects.requireNonNull(mailVerificationCurrentUser).isEmailVerified()){                             // if the user has verified his email address
