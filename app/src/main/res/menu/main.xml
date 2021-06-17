@@ -6,4 +6,12 @@
         android:orderInCategory="100"
         android:title="@string/logout"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/itemSearch_Main"
+        android:title="@string/search"
+        android:icon="@drawable/ic_menu_search"
+        app:showAsAction="ifRoom"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"/>
+    
 </menu>

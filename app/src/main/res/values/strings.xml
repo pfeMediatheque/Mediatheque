@@ -27,5 +27,6 @@
     <string name="title_resetPassword">Reset your password</string>
     <string name="reset_it">Reset it</string>
     <string name="already_reset">already reset ?</string>
+    <string name="search">Search</string>
 
 </resources>
