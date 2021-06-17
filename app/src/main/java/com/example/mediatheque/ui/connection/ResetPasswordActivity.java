@@ -1,4 +1,4 @@
-package com.example.mediatheque;
+package com.example.mediatheque.ui.connection;
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.mediatheque.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class ResetPasswordActivity extends AppCompatActivity implements View.OnClickListener {
