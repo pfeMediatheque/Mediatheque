@@ -11,7 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Mediatheque">
-        <activity android:name=".ui.connection.ResetPasswordActivity"></activity>
+        <activity
+            android:name=".ui.movie.AddMovie"
+            android:theme="@style/Theme.Mediatheque.NoActionBar" />
+        <activity
+            android:name=".ui.book.AddBook"
+            android:theme="@style/Theme.Mediatheque.NoActionBar" />
+        <activity
+            android:name=".ui.connection.ResetPasswordActivity"
+            android:theme="@style/Theme.Mediatheque.NoActionBar" />
         <activity
             android:name=".ui.connection.RegisterActivity"
             android:theme="@style/Theme.Mediatheque.NoActionBar" />

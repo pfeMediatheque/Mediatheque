@@ -1,6 +1,5 @@
 package com.example.mediatheque.ui.connection;
 
-
 import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -11,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.mediatheque.R;
 import com.google.firebase.auth.FirebaseAuth;
 

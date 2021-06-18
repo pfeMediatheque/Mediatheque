@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.mediatheque.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -115,11 +114,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         mAuth.createUserWithEmailAndPassword(email,pwd).
                 addOnCompleteListener(task -> {                                                                         // create user with him email and password
-                    Map<String,Object> userCollection = new HashMap<>();                                                // hashmap will save the name of the fields on the database
-                    userCollection.put(USERNAME_KEY,username);                                                          // put the value of username in the USERNAME_KEY column
-                    userCollection.put(EMAIL_KEY,email);                                                                // put the value of email in the EMAIL_KEY column
+                    Map<String,Object> mapUser = new HashMap<>();                                                // hashmap will save the name of the fields on the database
+                    mapUser.put(USERNAME_KEY,username);                                                          // put the value of username in the USERNAME_KEY column
+                    mapUser.put(EMAIL_KEY,email);                                                                // put the value of email in the EMAIL_KEY column
 
-                    db.collection("userCollection").add(userCollection)                                    // in database adds collection (table) named userCollection
+                    db.collection("userCollection").add(mapUser)                                    // in database adds collection (table) named userCollection
                             .addOnSuccessListener(documentReference -> {                                                // when the task was successfully finish
                                 Toast.makeText(RegisterActivity.this,                                           // show a successfully message
                                         "Verify your email address to stay connect on the application.",
