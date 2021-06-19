@@ -9,6 +9,7 @@ import android.widget.ImageButton;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import com.example.mediatheque.R;
+import com.example.mediatheque.ShowActivity;
 import com.example.mediatheque.databinding.FragmentBookBinding;
 
 public class BookFragment extends Fragment {
@@ -22,6 +23,8 @@ public class BookFragment extends Fragment {
 
         ImageButton btnAddBook = root.findViewById(R.id.btnAddBook);
         btnAddBook.setOnClickListener(view -> startActivity(new Intent(getActivity(), AddBook.class)));
+
+        startActivity(new Intent(getActivity(), ShowActivity.class));
 
         return root;
     }

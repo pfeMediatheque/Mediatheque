@@ -25,6 +25,24 @@
         android:focusableInTouchMode="true">
 
         <EditText
+
+            android:id="@+id/editTextTitleOfTheBook_AddBook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/title_of_the_book"
+            android:inputType="text"
+            android:importantForAutofill="no" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <EditText
+            android:layout_marginTop="20dp"
             android:id="@+id/editTextNameOfTheAuthor_AddBook"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -58,22 +76,6 @@
 
         <EditText
             android:layout_marginTop="20dp"
-            android:id="@+id/editTextTitleOfTheBook_AddBook"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/title_of_the_book"
-            android:inputType="text"
-            android:importantForAutofill="no" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:focusable="true"
-        android:focusableInTouchMode="true">
-
-        <EditText
             android:id="@+id/editTextTypeOfTheBook_AddBook"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
