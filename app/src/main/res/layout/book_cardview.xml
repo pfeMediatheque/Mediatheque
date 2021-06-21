@@ -3,10 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:contentPadding="5dp"
-    app:cardCornerRadius="5dp"
     app:cardElevation="5dp"
-    app:cardUseCompatPadding="true">
+    android:layout_margin="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,13 +12,15 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textViewTitleOfTheBook_modelLayout"
+            android:id="@+id/textViewTitleOfTheBook_cardView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Title"
+            android:textStyle="bold"
             android:textSize="20sp"
             android:layout_marginBottom="10dp"
-            android:textColor="#000000"/>
+            android:layout_marginLeft="5dp"
+            android:textColor="#264653"/>
     </LinearLayout>
 
     <LinearLayout
@@ -29,31 +29,32 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textViewNameOfTheAuthor_modelLayout"
+            android:id="@+id/textViewNameOfTheAuthor_cardView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="NameOfTheAuthor"
             android:textColor="#000000"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             />
 
         <TextView
-            android:id="@+id/textViewFirstNameOfTheAuthor_modelLayout"
+            android:id="@+id/textViewFirstNameOfTheAuthor_cardView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="FirstNameOfTheAuthor"
             android:textColor="#000000"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="5dp"
             />
 
         <TextView
-            android:id="@+id/textViewTypeOfTheBook_modelLayout"
+            android:id="@+id/textViewTypeOfTheBook_cardView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TypeOfTheBook"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
             />
     </LinearLayout>
 
@@ -63,29 +64,30 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textViewPublishersName_modelLayout"
+            android:id="@+id/textViewPublishersName_cardView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="PublishersName"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:textColor="#000000"/>
 
         <TextView
-            android:id="@+id/textViewDateOfPublication_modelLayout"
+            android:id="@+id/textViewDateOfPublication_cardView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="DateOfPublication"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="5dp"
             android:textColor="#000000"/>
 
         <TextView
-            android:id="@+id/textViewNumberOfPages_modelLayout"
+            android:id="@+id/textViewNumberOfPages_cardView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="DatePublication"
-            android:layout_marginTop="40dp"
-            android:layout_marginLeft="68dp"/>
+            android:layout_marginTop="50dp" />
 
     </LinearLayout>
 

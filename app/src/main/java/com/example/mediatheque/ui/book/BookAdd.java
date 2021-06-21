@@ -13,7 +13,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AddBook extends AppCompatActivity implements View.OnClickListener {
+public class BookAdd extends AppCompatActivity implements View.OnClickListener {
 
     private EditText editTextNameOfTheAuthor_AddBook,editTextFirstNameOfTheAuthor_AddBook,
             editTextTitleOfTheBook_AddBook,editTextTypeOfTheBook_AddBook,editTextNumberOfPages_AddBook,
@@ -119,9 +119,9 @@ public class AddBook extends AppCompatActivity implements View.OnClickListener {
 
         db.collection("bookCollection").add(mapBook)
                 .addOnSuccessListener(documentReference -> {
-                    Toast.makeText(AddBook.this, "The book has been successfully added.", Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(AddBook.this, BookFragment.class));
-                }).addOnFailureListener(e -> Toast.makeText(AddBook.this, "Adding book failed - Connection error with the database.", Toast.LENGTH_LONG).show());
+                    Toast.makeText(BookAdd.this, "The book has been successfully added.", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(BookAdd.this, BookFragment.class));
+                }).addOnFailureListener(e -> Toast.makeText(BookAdd.this, "Adding book failed - Connection error with the database.", Toast.LENGTH_LONG).show());
 
     }
 }

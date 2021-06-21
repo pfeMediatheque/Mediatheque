@@ -22,7 +22,7 @@ public class BookFragment extends Fragment {
         View root = binding.getRoot();
 
         ImageButton btnAddBook = root.findViewById(R.id.btnAddBook);
-        btnAddBook.setOnClickListener(view -> startActivity(new Intent(getActivity(), AddBook.class)));
+        btnAddBook.setOnClickListener(view -> startActivity(new Intent(getActivity(), BookAdd.class)));
 
         startActivity(new Intent(getActivity(), ShowActivity.class));
 
