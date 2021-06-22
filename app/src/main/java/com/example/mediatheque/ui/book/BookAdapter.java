@@ -1,46 +1,48 @@
-package com.example.mediatheque;
+package com.example.mediatheque.ui.book;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.mediatheque.R;
+
 import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MyViewHolder> {
 
-    private final ShowActivity activity;
-    private final List<BookModel> mList;
+    private final List<BookModel> bookModelList;
 
-    public BookAdapter(ShowActivity activity, List<BookModel> mList){
-        this.activity = activity;
-        this.mList = mList;
+    public BookAdapter(Context context, List<BookModel> bookModelList){
+        this.bookModelList = bookModelList;
     }
 
     @NonNull
     @NotNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(activity).inflate(R.layout.book_cardview, parent, false);
-        return new MyViewHolder(v);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.book_cardview, parent, false);
+        return new MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull MyViewHolder holder, int position) {
-        holder.textViewTitleOfTheBook_cardView.setText(mList.get(position).getTextViewTitleOfTheBook_cardView());
-        holder.textViewNameOfTheAuthor_cardView.setText(mList.get(position).getTextViewNameOfTheAuthor_cardView());
-        holder.textViewFirstNameOfTheAuthor_cardView.setText(mList.get(position).getTextViewFirstNameOfTheAuthor_cardView());
-        holder.textViewTypeOfTheBook_cardView.setText(mList.get(position).getTextViewTypeOfTheBook_cardView());
-        holder.textViewNumberOfPages_cardView.setText(String.format("%s pages", mList.get(position).getTextViewNumberOfPages_cardView()));
-        holder.textViewPublishersName_cardView.setText(mList.get(position).getTextViewPublishersName_cardView());
-        holder.textViewDateOfPublication_cardView.setText(mList.get(position).getTextViewDateOfPublication_cardView());
+        holder.textViewTitleOfTheBook_cardView.setText(bookModelList.get(position).getTextViewTitleOfTheBook_cardView());
+        holder.textViewNameOfTheAuthor_cardView.setText(bookModelList.get(position).getTextViewNameOfTheAuthor_cardView());
+        holder.textViewFirstNameOfTheAuthor_cardView.setText(bookModelList.get(position).getTextViewFirstNameOfTheAuthor_cardView());
+        holder.textViewTypeOfTheBook_cardView.setText(bookModelList.get(position).getTextViewTypeOfTheBook_cardView());
+        holder.textViewNumberOfPages_cardView.setText(String.format("%s pages", bookModelList.get(position).getTextViewNumberOfPages_cardView()));
+        holder.textViewPublishersName_cardView.setText(bookModelList.get(position).getTextViewPublishersName_cardView());
+        holder.textViewDateOfPublication_cardView.setText(bookModelList.get(position).getTextViewDateOfPublication_cardView());
     }
 
     @Override
     public int getItemCount() {
-        return mList.size();
+        return bookModelList.size();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
@@ -50,9 +52,9 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MyViewHolder> 
         public MyViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
 
-            textViewTitleOfTheBook_cardView = itemView.findViewById(R.id.textViewTitleOfTheBook_cardView);
+            textViewTitleOfTheBook_cardView = itemView.findViewById(R.id.textViewFirstNameOfTheAuthor_cardView);
             textViewNameOfTheAuthor_cardView = itemView.findViewById(R.id.textViewNameOfTheAuthor_cardView);
-            textViewFirstNameOfTheAuthor_cardView = itemView.findViewById(R.id.textViewFirstNameOfTheAuthor_cardView);
+            textViewFirstNameOfTheAuthor_cardView = itemView.findViewById(R.id.textViewTitleOfTheBook_cardView);
             textViewTypeOfTheBook_cardView = itemView.findViewById(R.id.textViewTypeOfTheBook_cardView);
             textViewNumberOfPages_cardView = itemView.findViewById(R.id.textViewNumberOfPages_cardView);
             textViewPublishersName_cardView = itemView.findViewById(R.id.textViewPublishersName_cardView);

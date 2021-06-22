@@ -25,6 +25,24 @@
         android:focusableInTouchMode="true">
 
         <EditText
+            android:layout_marginTop="20dp"
+            android:id="@+id/editTextMovieTitle_AddMovie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/movie_title"
+            android:inputType="text"
+            android:importantForAutofill="no" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <EditText
+            android:layout_marginTop="20dp"
             android:id="@+id/editTextNameOfTheDirector_AddMovie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -50,6 +68,8 @@
             android:importantForAutofill="no" />
     </com.google.android.material.textfield.TextInputLayout>
 
+
+
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -58,22 +78,6 @@
 
         <EditText
             android:layout_marginTop="20dp"
-            android:id="@+id/editTextMovieTitle_AddMovie"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/movie_title"
-            android:inputType="text"
-            android:importantForAutofill="no" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:focusable="true"
-        android:focusableInTouchMode="true">
-
-        <EditText
             android:id="@+id/editTextTypeOfMovie_AddMovie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -96,22 +100,6 @@
             android:ems="10"
             android:hint="@string/duration_of_the_movie"
             android:inputType="number"
-            android:importantForAutofill="no" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:focusable="true"
-        android:focusableInTouchMode="true">
-
-        <EditText
-            android:id="@+id/editTextDateOfFirstViewing_AddMovie"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/date_of_first_viewing"
-            android:inputType="date"
             android:importantForAutofill="no" />
     </com.google.android.material.textfield.TextInputLayout>
 

@@ -61,7 +61,13 @@ public class BookAdd extends AppCompatActivity implements View.OnClickListener {
         String PublishersName = editTextPublishersName_AddBook.getText().toString().trim();
         String DateOfPublication = editTextDateOfPublication_AddBook.getText().toString().trim();
 
-        if (NameOfTheAuthor.isEmpty()){
+         if (TitleOfTheBook.isEmpty()){
+            editTextTitleOfTheBook_AddBook.setError("Title of the book is required.");
+            editTextTitleOfTheBook_AddBook.requestFocus();
+            return;
+        }
+
+        else if (NameOfTheAuthor.isEmpty()){
             editTextNameOfTheAuthor_AddBook.setError("Name of the author is required.");
             editTextNameOfTheAuthor_AddBook.requestFocus();
             return;
@@ -73,55 +79,51 @@ public class BookAdd extends AppCompatActivity implements View.OnClickListener {
             return;
         }
 
-         if (TitleOfTheBook.isEmpty()){
-            editTextTitleOfTheBook_AddBook.setError("Title of the book is required.");
-            editTextTitleOfTheBook_AddBook.requestFocus();
-            return;
-        }
-
-         if (TypeOfTheBook.isEmpty()){
+        else if (TypeOfTheBook.isEmpty()){
             editTextTypeOfTheBook_AddBook.setError("Type of the book is required.");
             editTextTypeOfTheBook_AddBook.requestFocus();
             return;
         }
 
-         if (NumberOfPages.isEmpty()){
+        else if (NumberOfPages.isEmpty()){
             editTextNumberOfPages_AddBook.setError("Number of pages is required.");
             editTextNumberOfPages_AddBook.requestFocus();
             return;
         }
 
-         if (PublishersName.isEmpty()){
+        else if (PublishersName.isEmpty()){
             editTextPublishersName_AddBook.setError("Publisher's name is required.");
             editTextPublishersName_AddBook.requestFocus();
             return;
         }
 
-         if (DateOfPublication.isEmpty()){
+        else if (DateOfPublication.isEmpty()){
             editTextDateOfPublication_AddBook.setError("Date of publication is required.");
             editTextDateOfPublication_AddBook.requestFocus();
             return;
         }
 
-         if (!DateOfPublication.matches("\\d{2}/\\d{2}/\\d{4}")) {
+        else if (!DateOfPublication.matches("\\d{2}/\\d{2}/\\d{4}")) {
             editTextDateOfPublication_AddBook.setError("Please provide the date in DD/MM/YYYY format.");
             editTextDateOfPublication_AddBook.requestFocus();
         }
 
-        Map<String,Object> mapBook = new HashMap<>();
-        mapBook.put("NameOfTheAuthor",NameOfTheAuthor);
-        mapBook.put("FirstNameOfTheAuthor",FirstNameOfTheAuthor);
-        mapBook.put("TitleOfTheBook",TitleOfTheBook);
-        mapBook.put("TypeOfTheBook",TypeOfTheBook);
-        mapBook.put("NumberOfPages",NumberOfPages);
-        mapBook.put("PublishersName",PublishersName);
-        mapBook.put("DateOfPublication",DateOfPublication);
+        else {
+            Map<String,Object> mapBook = new HashMap<>();
+            mapBook.put("NameOfTheAuthor",NameOfTheAuthor);
+            mapBook.put("FirstNameOfTheAuthor",FirstNameOfTheAuthor);
+            mapBook.put("TitleOfTheBook",TitleOfTheBook);
+            mapBook.put("TypeOfTheBook",TypeOfTheBook);
+            mapBook.put("NumberOfPages",NumberOfPages);
+            mapBook.put("PublishersName",PublishersName);
+            mapBook.put("DateOfPublication",DateOfPublication);
 
-        db.collection("bookCollection").add(mapBook)
-                .addOnSuccessListener(documentReference -> {
-                    Toast.makeText(BookAdd.this, "The book has been successfully added.", Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(BookAdd.this, BookFragment.class));
-                }).addOnFailureListener(e -> Toast.makeText(BookAdd.this, "Adding book failed - Connection error with the database.", Toast.LENGTH_LONG).show());
+            db.collection("bookCollection").add(mapBook)
+                    .addOnSuccessListener(documentReference -> {
+                        Toast.makeText(BookAdd.this, "The book has been successfully added.", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(BookAdd.this, BookFragment.class));
+                    }).addOnFailureListener(e -> Toast.makeText(BookAdd.this, "Adding book failed - Connection error with the database.", Toast.LENGTH_LONG).show());
 
+        }
     }
 }

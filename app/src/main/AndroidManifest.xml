@@ -11,13 +11,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Mediatheque">
-
-
-        <activity
-            android:name=".ShowActivity"
-            android:theme="@style/Theme.Mediatheque.NoActionBar"/>
-
-
         <activity
             android:name=".ui.movie.AddMovie"
             android:theme="@style/Theme.Mediatheque.NoActionBar" />

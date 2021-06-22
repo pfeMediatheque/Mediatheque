@@ -1,4 +1,4 @@
-package com.example.mediatheque;
+package com.example.mediatheque.ui.book;
 
 public class BookModel {
 
