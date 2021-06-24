@@ -9,6 +9,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -42,10 +43,13 @@ public class BookFragment extends Fragment {
         bookAdapter = new BookAdapter(getContext(), bookModelList);
         recyclerViewBook.setAdapter(bookAdapter);
 
+        ItemTouchHelper touchHelper = new ItemTouchHelper(new TouchHelperBook(bookAdapter));
+        touchHelper.attachToRecyclerView(recyclerViewBook);
+
         showDataBook();
 
         ImageButton btnAddBook = root.findViewById(R.id.btnAddBook);
-        btnAddBook.setOnClickListener(view -> startActivity(new Intent(getActivity(), BookAdd.class)));
+        btnAddBook.setOnClickListener(view -> startActivity(new Intent(getActivity(), BookAddUpdate.class)));
 
         return root;
     }
@@ -55,8 +59,8 @@ public class BookFragment extends Fragment {
                 .addOnCompleteListener(task -> {
                     bookModelList.clear();
                     for (DocumentSnapshot snapshot : Objects.requireNonNull(task.getResult())){
-                        BookModel bookModel = new BookModel(snapshot.getString("NameOfTheAuthor"),
-                                snapshot.getString("FirstNameOfTheAuthor"),snapshot.getString("TitleOfTheBook"),
+                        BookModel bookModel = new BookModel(snapshot.getString("idBook"),snapshot.getString("TitleOfTheBook"),
+                                snapshot.getString("NameOfTheAuthor"),snapshot.getString("FirstNameOfTheAuthor"),
                                 snapshot.getString("TypeOfTheBook"),snapshot.getString("NumberOfPages"),
                                 snapshot.getString("PublishersName"),snapshot.getString("DateOfPublication"));
 

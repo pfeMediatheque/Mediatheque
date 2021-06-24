@@ -26,10 +26,11 @@ public class AddMovie extends AppCompatActivity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_movie);
 
+        editTextMovieTitle_AddMovie = findViewById(R.id.editTextMovieTitle_AddMovie);
+
         editTextNameOfTheDirector_AddMovie = findViewById(R.id.editTextNameOfTheDirector_AddMovie);
         editTextFirstNameOfTheDirector_AddMovie = findViewById(R.id.editTextFirstNameOfTheDirector_AddMovie);
 
-        editTextMovieTitle_AddMovie = findViewById(R.id.editTextMovieTitle_AddMovie);
         editTextTypeOfMovie_AddMovie = findViewById(R.id.editTextTypeOfMovie_AddMovie);
         editTextDurationOfTheMovie_AddMovie = findViewById(R.id.editTextDurationOfTheMovie_AddMovie);
 
@@ -52,10 +53,12 @@ public class AddMovie extends AppCompatActivity implements View.OnClickListener 
     }
 
     private void buttonAddMovieClicked() {
+
+        String MovieTitle = editTextMovieTitle_AddMovie.getText().toString().trim();
+
         String NameOfTheDirector = editTextNameOfTheDirector_AddMovie.getText().toString().trim();
         String FirstNameOfTheDirector = editTextFirstNameOfTheDirector_AddMovie.getText().toString().trim();
 
-        String MovieTitle = editTextMovieTitle_AddMovie.getText().toString().trim();
         String TypeOfMovie = editTextTypeOfMovie_AddMovie.getText().toString().trim();
         String DurationOfTheMovie = editTextDurationOfTheMovie_AddMovie.getText().toString().trim();
 
@@ -65,43 +68,36 @@ public class AddMovie extends AppCompatActivity implements View.OnClickListener 
         if (MovieTitle.isEmpty()){
             editTextMovieTitle_AddMovie.setError("Title of the movie is required.");
             editTextMovieTitle_AddMovie.requestFocus();
-            return;
         }
 
         else if (NameOfTheDirector.isEmpty()){
             editTextNameOfTheDirector_AddMovie.setError("Name of the director is required.");
             editTextNameOfTheDirector_AddMovie.requestFocus();
-            return;
         }
 
         else if (FirstNameOfTheDirector.isEmpty()){
             editTextFirstNameOfTheDirector_AddMovie.setError("Firstname of the director is required.");
             editTextFirstNameOfTheDirector_AddMovie.requestFocus();
-            return;
         }
 
         else if (TypeOfMovie.isEmpty()){
             editTextTypeOfMovie_AddMovie.setError("Type of the movie is required.");
             editTextTypeOfMovie_AddMovie.requestFocus();
-            return;
         }
 
         else if (DurationOfTheMovie.isEmpty()){
             editTextDurationOfTheMovie_AddMovie.setError("Duration of the movie is required.");
             editTextDurationOfTheMovie_AddMovie.requestFocus();
-            return;
         }
 
         else if (ProductionCompanies.isEmpty()){
             editTextProductionCompanies_AddMovie.setError("Production companies is required.");
             editTextProductionCompanies_AddMovie.requestFocus();
-            return;
         }
 
         else if (ReleaseDate.isEmpty()){
             editTextReleaseDate_AddMovie.setError("Release date is required.");
             editTextReleaseDate_AddMovie.requestFocus();
-            return;
         }
 
         else if (!ReleaseDate.matches("\\d{2}/\\d{2}/\\d{4}")) {
@@ -111,15 +107,15 @@ public class AddMovie extends AppCompatActivity implements View.OnClickListener 
 
         else{
             Map<String,Object> mapMovie = new HashMap<>();
+            mapMovie.put("MovieTitle",MovieTitle);
             mapMovie.put("NameOfTheDirector",NameOfTheDirector);
             mapMovie.put("FirstNameOfTheDirector",FirstNameOfTheDirector);
-            mapMovie.put("MovieTitle",MovieTitle);
             mapMovie.put("TypeOfMovie",TypeOfMovie);
             mapMovie.put("DurationOfTheMovie",DurationOfTheMovie);
             mapMovie.put("ProductionCompanies",ProductionCompanies);
             mapMovie.put("ReleaseDate",ReleaseDate);
 
-            db.collection("MovieCollection").add(mapMovie)
+            db.collection("movieCollection").add(mapMovie)
                     .addOnSuccessListener(documentReference -> {
                         Toast.makeText(AddMovie.this, "The movie has been successfully added.", Toast.LENGTH_LONG).show();
                         startActivity(new Intent(AddMovie.this, MovieFragment.class));

@@ -13,9 +13,11 @@ import java.util.List;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder> {
 
+    private Context context;
     private final List<MovieModel> movieModelList;
 
     public MovieAdapter(Context context, List<MovieModel> movieModelList){
+        this.context = context;
         this.movieModelList = movieModelList;
     }
 
@@ -50,9 +52,9 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
         public MyViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
 
-            textViewTitleOfTheMovie_cardView = itemView.findViewById(R.id.textViewFirstNameOfTheDirector_cardView);
+            textViewTitleOfTheMovie_cardView = itemView.findViewById(R.id.textViewTitleOfTheMovie_cardView);
             textViewNameOfTheDirector_cardView = itemView.findViewById(R.id.textViewNameOfTheDirector_cardView);
-            textViewFirstNameOfTheDirector_cardView = itemView.findViewById(R.id.textViewTitleOfTheMovie_cardView);
+            textViewFirstNameOfTheDirector_cardView = itemView.findViewById(R.id.textViewFirstNameOfTheDirector_cardView);
             textViewTypeOfTheMovie_cardView = itemView.findViewById(R.id.textViewTypeOfTheMovie_cardView);
             textViewDurationOfTheMovie_cardView = itemView.findViewById(R.id.textViewDurationOfTheMovie_cardView);
             textViewProductionCompanies_cardView = itemView.findViewById(R.id.textViewProductionCompanies_cardView);

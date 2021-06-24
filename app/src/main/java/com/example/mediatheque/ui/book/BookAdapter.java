@@ -1,6 +1,8 @@
 package com.example.mediatheque.ui.book;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,10 +17,29 @@ import java.util.List;
 
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MyViewHolder> {
 
+    private Context context;
     private final List<BookModel> bookModelList;
 
     public BookAdapter(Context context, List<BookModel> bookModelList){
+        this.context = context;
         this.bookModelList = bookModelList;
+    }
+
+    public void updateDataBook (int position){
+        BookModel getPositionList = bookModelList.get(position);
+        Bundle bundle = new Bundle();
+        bundle.putString("updateIdBook",getPositionList.getIdBook());
+        bundle.putString("updateTitleOfTheBook",getPositionList.getTextViewTitleOfTheBook_cardView());
+        bundle.putString("updateNameOfTheAuthor",getPositionList.getTextViewNameOfTheAuthor_cardView());
+        bundle.putString("updateFirstNameOfTheAuthor",getPositionList.getTextViewFirstNameOfTheAuthor_cardView());
+        bundle.putString("updateTypeOfTheBook",getPositionList.getTextViewTypeOfTheBook_cardView());
+        bundle.putString("updateNumberOfPages",getPositionList.getTextViewNumberOfPages_cardView());
+        bundle.putString("updatePublishersName",getPositionList.getTextViewPublishersName_cardView());
+        bundle.putString("updateDateOfPublication",getPositionList.getTextViewDateOfPublication_cardView());
+
+        Intent intent = new Intent (context, BookAddUpdate.class);
+        intent.putExtras(bundle);
+        context.startActivity(intent);
     }
 
     @NonNull
@@ -52,9 +73,9 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MyViewHolder> 
         public MyViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
 
-            textViewTitleOfTheBook_cardView = itemView.findViewById(R.id.textViewFirstNameOfTheAuthor_cardView);
+            textViewTitleOfTheBook_cardView = itemView.findViewById(R.id.textViewTitleOfTheBook_cardView);
             textViewNameOfTheAuthor_cardView = itemView.findViewById(R.id.textViewNameOfTheAuthor_cardView);
-            textViewFirstNameOfTheAuthor_cardView = itemView.findViewById(R.id.textViewTitleOfTheBook_cardView);
+            textViewFirstNameOfTheAuthor_cardView = itemView.findViewById(R.id.textViewFirstNameOfTheAuthor_cardView);
             textViewTypeOfTheBook_cardView = itemView.findViewById(R.id.textViewTypeOfTheBook_cardView);
             textViewNumberOfPages_cardView = itemView.findViewById(R.id.textViewNumberOfPages_cardView);
             textViewPublishersName_cardView = itemView.findViewById(R.id.textViewPublishersName_cardView);

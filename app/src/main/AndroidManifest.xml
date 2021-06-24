@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.mediatheque">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -15,7 +16,7 @@
             android:name=".ui.movie.AddMovie"
             android:theme="@style/Theme.Mediatheque.NoActionBar" />
         <activity
-            android:name=".ui.book.BookAdd"
+            android:name=".ui.book.BookAddUpdate"
             android:theme="@style/Theme.Mediatheque.NoActionBar" />
         <activity
             android:name=".ui.connection.ResetPasswordActivity"

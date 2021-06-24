@@ -28,6 +28,7 @@ public class MovieFragment extends Fragment {
     private List<MovieModel> movieModelList;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         binding = FragmentMovieBinding.inflate(inflater, container, false);
         View root = inflater.inflate(R.layout.fragment_movie, container, false);
 
@@ -49,12 +50,12 @@ public class MovieFragment extends Fragment {
     }
 
     private void showDataMovie() {
-        db.collection("MovieCollection").get()
+        db.collection("movieCollection").get()
                 .addOnCompleteListener(task -> {
                     movieModelList.clear();
                     for (DocumentSnapshot snapshot : Objects.requireNonNull(task.getResult())){
-                        MovieModel movieModel = new MovieModel(snapshot.getString("NameOfTheDirector"),
-                                snapshot.getString("FirstNameOfTheDirector"),snapshot.getString("MovieTitle"),
+                        MovieModel movieModel = new MovieModel(snapshot.getString("MovieTitle"),
+                                snapshot.getString("NameOfTheDirector"),snapshot.getString("FirstNameOfTheDirector"),
                                 snapshot.getString("TypeOfMovie"),snapshot.getString("DurationOfTheMovie"),
                                 snapshot.getString("ProductionCompanies"),snapshot.getString("ReleaseDate"));
 

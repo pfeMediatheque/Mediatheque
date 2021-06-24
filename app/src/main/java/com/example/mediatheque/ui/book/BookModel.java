@@ -2,11 +2,12 @@ package com.example.mediatheque.ui.book;
 
 public class BookModel {
 
-    String textViewTitleOfTheBook_cardView, textViewNameOfTheAuthor_cardView, textViewFirstNameOfTheAuthor_cardView, textViewTypeOfTheBook_cardView, textViewNumberOfPages_cardView, textViewPublishersName_cardView, textViewDateOfPublication_cardView;
+    String idBook,textViewTitleOfTheBook_cardView, textViewNameOfTheAuthor_cardView, textViewFirstNameOfTheAuthor_cardView, textViewTypeOfTheBook_cardView, textViewNumberOfPages_cardView, textViewPublishersName_cardView, textViewDateOfPublication_cardView;
 
     public BookModel() { }
 
-    public BookModel(String textViewTitleOfTheBook_cardView, String textViewNameOfTheAuthor_cardView, String textViewFirstNameOfTheAuthor_cardView, String textViewTypeOfTheBook_cardView, String textViewNumberOfPages_cardView, String textViewPublishersName_cardView, String textViewDateOfPublication_cardView) {
+    public BookModel(String idBook, String textViewTitleOfTheBook_cardView, String textViewNameOfTheAuthor_cardView, String textViewFirstNameOfTheAuthor_cardView, String textViewTypeOfTheBook_cardView, String textViewNumberOfPages_cardView, String textViewPublishersName_cardView, String textViewDateOfPublication_cardView) {
+        this.idBook = idBook;
         this.textViewTitleOfTheBook_cardView = textViewTitleOfTheBook_cardView;
         this.textViewNameOfTheAuthor_cardView = textViewNameOfTheAuthor_cardView;
         this.textViewFirstNameOfTheAuthor_cardView = textViewFirstNameOfTheAuthor_cardView;
@@ -14,6 +15,14 @@ public class BookModel {
         this.textViewNumberOfPages_cardView = textViewNumberOfPages_cardView;
         this.textViewPublishersName_cardView = textViewPublishersName_cardView;
         this.textViewDateOfPublication_cardView = textViewDateOfPublication_cardView;
+    }
+
+    public String getIdBook() {
+        return idBook;
+    }
+
+    public void setIdBook(String idBook) {
+        this.idBook = idBook;
     }
 
     public String getTextViewTitleOfTheBook_cardView() {
