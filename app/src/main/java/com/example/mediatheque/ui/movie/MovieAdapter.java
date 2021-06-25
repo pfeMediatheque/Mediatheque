@@ -1,6 +1,8 @@
 package com.example.mediatheque.ui.movie;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +21,23 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
     public MovieAdapter(Context context, List<MovieModel> movieModelList){
         this.context = context;
         this.movieModelList = movieModelList;
+    }
+
+    public void updateDataMovie (int position){
+        MovieModel getPositionListMovie = movieModelList.get(position);
+        Bundle bundle = new Bundle();
+        bundle.putString("updateIdMovie",getPositionListMovie.getIdMovie());
+        bundle.putString("updateTitleOfTheMovie",getPositionListMovie.getTextViewTitleOfTheMovie_cardView());
+        bundle.putString("updateNameOfTheDirector",getPositionListMovie.getTextViewNameOfTheDirector_cardView());
+        bundle.putString("updateFirstNameOfTheDirector",getPositionListMovie.getTextViewFirstNameOfTheDirector_cardView());
+        bundle.putString("updateTypeOfTheMovie",getPositionListMovie.getTextViewTypeOfTheMovie_cardView());
+        bundle.putString("updateDurationOfTheMovie",getPositionListMovie.getTextViewDurationOfTheMovie_cardView());
+        bundle.putString("updateProductionCompanies",getPositionListMovie.getTextViewProductionCompanies_cardView());
+        bundle.putString("updateReleaseDate",getPositionListMovie.getTextViewReleaseDate_cardView());
+
+        Intent intent = new Intent (context, MovieAddUpdate.class);
+        intent.putExtras(bundle);
+        context.startActivity(intent);
     }
 
     @NonNull

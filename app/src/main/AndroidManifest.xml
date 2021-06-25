@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mediatheque">
         <activity
-            android:name=".ui.movie.AddMovie"
+            android:name=".ui.movie.MovieAddUpdate"
             android:theme="@style/Theme.Mediatheque.NoActionBar" />
         <activity
             android:name=".ui.book.BookAddUpdate"

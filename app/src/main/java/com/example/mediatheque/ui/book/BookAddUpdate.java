@@ -52,6 +52,7 @@ public class BookAddUpdate extends AppCompatActivity implements View.OnClickList
         Bundle bundle = getIntent().getExtras();
         if(bundle != null){
             buttonAdd_AddBook.setText("Update");
+
             updateIdBook = bundle.getString("updateIdBook");
             updateTitleOfTheBook = bundle.getString("updateTitleOfTheBook");
             updateNameOfTheAuthor = bundle.getString("updateNameOfTheAuthor");

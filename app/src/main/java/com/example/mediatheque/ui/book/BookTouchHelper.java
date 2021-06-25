@@ -8,11 +8,11 @@ import com.example.mediatheque.ui.book.BookAdapter;
 
 import org.jetbrains.annotations.NotNull;
 
-public class TouchHelperBook extends ItemTouchHelper.SimpleCallback {
+public class BookTouchHelper extends ItemTouchHelper.SimpleCallback {
 
     private BookAdapter bookAdapter;
 
-    public TouchHelperBook(BookAdapter bookAdapter) {
+    public BookTouchHelper(BookAdapter bookAdapter) {
         super(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
         this.bookAdapter = bookAdapter;
     }

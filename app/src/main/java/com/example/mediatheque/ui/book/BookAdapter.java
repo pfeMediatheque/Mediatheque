@@ -26,16 +26,16 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MyViewHolder> 
     }
 
     public void updateDataBook (int position){
-        BookModel getPositionList = bookModelList.get(position);
+        BookModel getPositionListBook = bookModelList.get(position);
         Bundle bundle = new Bundle();
-        bundle.putString("updateIdBook",getPositionList.getIdBook());
-        bundle.putString("updateTitleOfTheBook",getPositionList.getTextViewTitleOfTheBook_cardView());
-        bundle.putString("updateNameOfTheAuthor",getPositionList.getTextViewNameOfTheAuthor_cardView());
-        bundle.putString("updateFirstNameOfTheAuthor",getPositionList.getTextViewFirstNameOfTheAuthor_cardView());
-        bundle.putString("updateTypeOfTheBook",getPositionList.getTextViewTypeOfTheBook_cardView());
-        bundle.putString("updateNumberOfPages",getPositionList.getTextViewNumberOfPages_cardView());
-        bundle.putString("updatePublishersName",getPositionList.getTextViewPublishersName_cardView());
-        bundle.putString("updateDateOfPublication",getPositionList.getTextViewDateOfPublication_cardView());
+        bundle.putString("updateIdBook",getPositionListBook.getIdBook());
+        bundle.putString("updateTitleOfTheBook",getPositionListBook.getTextViewTitleOfTheBook_cardView());
+        bundle.putString("updateNameOfTheAuthor",getPositionListBook.getTextViewNameOfTheAuthor_cardView());
+        bundle.putString("updateFirstNameOfTheAuthor",getPositionListBook.getTextViewFirstNameOfTheAuthor_cardView());
+        bundle.putString("updateTypeOfTheBook",getPositionListBook.getTextViewTypeOfTheBook_cardView());
+        bundle.putString("updateNumberOfPages",getPositionListBook.getTextViewNumberOfPages_cardView());
+        bundle.putString("updatePublishersName",getPositionListBook.getTextViewPublishersName_cardView());
+        bundle.putString("updateDateOfPublication",getPositionListBook.getTextViewDateOfPublication_cardView());
 
         Intent intent = new Intent (context, BookAddUpdate.class);
         intent.putExtras(bundle);

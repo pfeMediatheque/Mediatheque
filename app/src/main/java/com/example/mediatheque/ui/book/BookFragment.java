@@ -43,7 +43,7 @@ public class BookFragment extends Fragment {
         bookAdapter = new BookAdapter(getContext(), bookModelList);
         recyclerViewBook.setAdapter(bookAdapter);
 
-        ItemTouchHelper touchHelper = new ItemTouchHelper(new TouchHelperBook(bookAdapter));
+        ItemTouchHelper touchHelper = new ItemTouchHelper(new BookTouchHelper(bookAdapter));
         touchHelper.attachToRecyclerView(recyclerViewBook);
 
         showDataBook();

@@ -9,6 +9,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.mediatheque.R;
@@ -41,10 +42,13 @@ public class MovieFragment extends Fragment {
         movieAdapter = new MovieAdapter(getContext(), movieModelList);
         recyclerViewMovie.setAdapter(movieAdapter);
 
+        ItemTouchHelper touchHelper = new ItemTouchHelper(new MovieTouchHelper(movieAdapter));
+        touchHelper.attachToRecyclerView(recyclerViewMovie);
+
         showDataMovie();
 
         ImageButton btnAddMovie = root.findViewById(R.id.btnAddMovie);
-        btnAddMovie.setOnClickListener(view -> startActivity(new Intent(getActivity(), AddMovie.class)));
+        btnAddMovie.setOnClickListener(view -> startActivity(new Intent(getActivity(), MovieAddUpdate.class)));
 
         return root;
     }
@@ -54,7 +58,7 @@ public class MovieFragment extends Fragment {
                 .addOnCompleteListener(task -> {
                     movieModelList.clear();
                     for (DocumentSnapshot snapshot : Objects.requireNonNull(task.getResult())){
-                        MovieModel movieModel = new MovieModel(snapshot.getString("MovieTitle"),
+                        MovieModel movieModel = new MovieModel(snapshot.getString("idMovie"),snapshot.getString("MovieTitle"),
                                 snapshot.getString("NameOfTheDirector"),snapshot.getString("FirstNameOfTheDirector"),
                                 snapshot.getString("TypeOfMovie"),snapshot.getString("DurationOfTheMovie"),
                                 snapshot.getString("ProductionCompanies"),snapshot.getString("ReleaseDate"));

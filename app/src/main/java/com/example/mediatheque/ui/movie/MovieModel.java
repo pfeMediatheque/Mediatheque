@@ -2,9 +2,10 @@ package com.example.mediatheque.ui.movie;
 
 public class MovieModel {
 
-    String textViewTitleOfTheMovie_cardView, textViewNameOfTheDirector_cardView, textViewFirstNameOfTheDirector_cardView, textViewTypeOfTheMovie_cardView, textViewDurationOfTheMovie_cardView, textViewProductionCompanies_cardView, textViewReleaseDate_cardView;
+    String idMovie, textViewTitleOfTheMovie_cardView, textViewNameOfTheDirector_cardView, textViewFirstNameOfTheDirector_cardView, textViewTypeOfTheMovie_cardView, textViewDurationOfTheMovie_cardView, textViewProductionCompanies_cardView, textViewReleaseDate_cardView;
 
-    public MovieModel(String textViewTitleOfTheMovie_cardView, String textViewNameOfTheDirector_cardView, String textViewFirstNameOfTheDirector_cardView, String textViewTypeOfTheMovie_cardView, String textViewDurationOfTheMovie_cardView, String textViewProductionCompanies_cardView, String textViewReleaseDate_cardView) {
+    public MovieModel(String idMovie, String textViewTitleOfTheMovie_cardView, String textViewNameOfTheDirector_cardView, String textViewFirstNameOfTheDirector_cardView, String textViewTypeOfTheMovie_cardView, String textViewDurationOfTheMovie_cardView, String textViewProductionCompanies_cardView, String textViewReleaseDate_cardView) {
+        this.idMovie = idMovie;
         this.textViewTitleOfTheMovie_cardView = textViewTitleOfTheMovie_cardView;
         this.textViewNameOfTheDirector_cardView = textViewNameOfTheDirector_cardView;
         this.textViewFirstNameOfTheDirector_cardView = textViewFirstNameOfTheDirector_cardView;
@@ -12,6 +13,14 @@ public class MovieModel {
         this.textViewDurationOfTheMovie_cardView = textViewDurationOfTheMovie_cardView;
         this.textViewProductionCompanies_cardView = textViewProductionCompanies_cardView;
         this.textViewReleaseDate_cardView = textViewReleaseDate_cardView;
+    }
+
+    public String getIdMovie() {
+        return idMovie;
+    }
+
+    public void setIdMovie(String idMovie) {
+        this.idMovie = idMovie;
     }
 
     public String getTextViewTitleOfTheMovie_cardView() {
