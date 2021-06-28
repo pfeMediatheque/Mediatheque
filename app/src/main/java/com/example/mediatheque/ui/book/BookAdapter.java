@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.mediatheque.R;
 import com.google.firebase.firestore.FirebaseFirestore;
 import org.jetbrains.annotations.NotNull;
-
 import java.util.List;
 
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MyViewHolder> {
