@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.mediatheque.R;
 import com.example.mediatheque.databinding.FragmentBookBinding;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -23,7 +22,7 @@ import java.util.Objects;
 
 public class BookFragment extends Fragment {
 
-    private FragmentBookBinding binding;
+    FragmentBookBinding binding;
 
     private FirebaseFirestore db;
     private BookAdapter bookAdapter;

@@ -7,7 +7,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class MovieTouchHelper extends ItemTouchHelper.SimpleCallback {
 
-    private MovieAdapter movieAdapter;
+    private final MovieAdapter movieAdapter;
 
     public MovieTouchHelper(MovieAdapter movieAdapter) {
         super(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
@@ -27,7 +27,7 @@ public class MovieTouchHelper extends ItemTouchHelper.SimpleCallback {
             movieAdapter.updateDataMovie(position);
             movieAdapter.notifyDataSetChanged();
         }else{
-
+            movieAdapter.deleteDataMovie(position);
         }
 
     }

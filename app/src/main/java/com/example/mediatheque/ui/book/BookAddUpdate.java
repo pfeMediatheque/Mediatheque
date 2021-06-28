@@ -1,6 +1,5 @@
 package com.example.mediatheque.ui.book;
 
-
 import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -9,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.example.mediatheque.MainActivity;
 import com.example.mediatheque.R;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -23,11 +21,11 @@ public class BookAddUpdate extends AppCompatActivity implements View.OnClickList
             editTextTitleOfTheBook_AddBook,editTextTypeOfTheBook_AddBook,editTextNumberOfPages_AddBook,
             editTextPublishersName_AddBook,editTextDateOfPublication_AddBook;
 
-    private String updateIdBook,updateTitleOfTheBook,updateNameOfTheAuthor,updateFirstNameOfTheAuthor,
-            updateTypeOfTheBook,updateNumberOfPages,updatePublishersName,updateDateOfPublication;
+    private String updateIdBook;
 
     private FirebaseFirestore db;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,13 +52,13 @@ public class BookAddUpdate extends AppCompatActivity implements View.OnClickList
             buttonAdd_AddBook.setText("Update");
 
             updateIdBook = bundle.getString("updateIdBook");
-            updateTitleOfTheBook = bundle.getString("updateTitleOfTheBook");
-            updateNameOfTheAuthor = bundle.getString("updateNameOfTheAuthor");
-            updateFirstNameOfTheAuthor = bundle.getString("updateFirstNameOfTheAuthor");
-            updateTypeOfTheBook = bundle.getString("updateTypeOfTheBook");
-            updateNumberOfPages = bundle.getString("updateNumberOfPages");
-            updatePublishersName = bundle.getString("updatePublishersName");
-            updateDateOfPublication = bundle.getString("updateDateOfPublication");
+            String updateTitleOfTheBook = bundle.getString("updateTitleOfTheBook");
+            String updateNameOfTheAuthor = bundle.getString("updateNameOfTheAuthor");
+            String updateFirstNameOfTheAuthor = bundle.getString("updateFirstNameOfTheAuthor");
+            String updateTypeOfTheBook = bundle.getString("updateTypeOfTheBook");
+            String updateNumberOfPages = bundle.getString("updateNumberOfPages");
+            String updatePublishersName = bundle.getString("updatePublishersName");
+            String updateDateOfPublication = bundle.getString("updateDateOfPublication");
 
             editTextTitleOfTheBook_AddBook.setText(updateTitleOfTheBook);
             editTextNameOfTheAuthor_AddBook.setText(updateNameOfTheAuthor);

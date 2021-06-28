@@ -21,11 +21,11 @@ public class MovieAddUpdate extends AppCompatActivity implements View.OnClickLis
             editTextMovieTitle_AddMovie,editTextTypeOfMovie_AddMovie,editTextDurationOfTheMovie_AddMovie,
             editTextProductionCompanies_AddMovie,editTextReleaseDate_AddMovie;
 
-    private String updateIdMovie,updateTitleOfTheMovie,updateNameOfTheDirector,updateFirstNameOfTheDirector,
-            updateTypeOfTheMovie,updateDurationOfTheMovie,updateProductionCompanies,updateReleaseDate;
+    private String updateIdMovie;
 
     private FirebaseFirestore db;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,13 +52,13 @@ public class MovieAddUpdate extends AppCompatActivity implements View.OnClickLis
             buttonAdd_AddMovie.setText("Update");
 
             updateIdMovie = bundle.getString("updateIdMovie");
-            updateTitleOfTheMovie = bundle.getString("updateTitleOfTheMovie");
-            updateNameOfTheDirector = bundle.getString("updateNameOfTheDirector");
-            updateFirstNameOfTheDirector = bundle.getString("updateFirstNameOfTheDirector");
-            updateTypeOfTheMovie = bundle.getString("updateTypeOfTheMovie");
-            updateDurationOfTheMovie = bundle.getString("updateDurationOfTheMovie");
-            updateProductionCompanies = bundle.getString("updateProductionCompanies");
-            updateReleaseDate = bundle.getString("updateReleaseDate");
+            String updateTitleOfTheMovie = bundle.getString("updateTitleOfTheMovie");
+            String updateNameOfTheDirector = bundle.getString("updateNameOfTheDirector");
+            String updateFirstNameOfTheDirector = bundle.getString("updateFirstNameOfTheDirector");
+            String updateTypeOfTheMovie = bundle.getString("updateTypeOfTheMovie");
+            String updateDurationOfTheMovie = bundle.getString("updateDurationOfTheMovie");
+            String updateProductionCompanies = bundle.getString("updateProductionCompanies");
+            String updateReleaseDate = bundle.getString("updateReleaseDate");
 
             editTextMovieTitle_AddMovie.setText(updateTitleOfTheMovie);
             editTextNameOfTheDirector_AddMovie.setText(updateNameOfTheDirector);

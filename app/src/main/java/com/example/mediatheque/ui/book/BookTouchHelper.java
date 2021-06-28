@@ -4,13 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mediatheque.ui.book.BookAdapter;
-
 import org.jetbrains.annotations.NotNull;
 
 public class BookTouchHelper extends ItemTouchHelper.SimpleCallback {
 
-    private BookAdapter bookAdapter;
+    private final BookAdapter bookAdapter;
 
     public BookTouchHelper(BookAdapter bookAdapter) {
         super(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
@@ -30,8 +28,7 @@ public class BookTouchHelper extends ItemTouchHelper.SimpleCallback {
             bookAdapter.updateDataBook(position);
             bookAdapter.notifyDataSetChanged();
         }else{
-
+            bookAdapter.deleteDataBook(position);
         }
-
     }
 }

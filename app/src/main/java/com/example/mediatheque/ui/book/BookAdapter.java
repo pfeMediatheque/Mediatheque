@@ -7,18 +7,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.mediatheque.R;
-
+import com.google.firebase.firestore.FirebaseFirestore;
 import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MyViewHolder> {
 
-    private Context context;
+    private final Context context;
     private final List<BookModel> bookModelList;
+    private final FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     public BookAdapter(Context context, List<BookModel> bookModelList){
         this.context = context;
@@ -40,6 +42,15 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MyViewHolder> 
         Intent intent = new Intent (context, BookAddUpdate.class);
         intent.putExtras(bundle);
         context.startActivity(intent);
+    }
+
+    public void deleteDataBook (int position){
+        BookModel getPositionListBook = bookModelList.get(position);
+        db.collection("bookCollection").document(getPositionListBook.getIdBook()).delete()
+                .addOnCompleteListener(task -> {
+                    Toast.makeText(context, "The book has been successfully deleted.", Toast.LENGTH_LONG).show();
+                    bookModelList.remove(position);
+                }).addOnFailureListener(e -> Toast.makeText(context, "Deleting book failed - Connection error with the database.", Toast.LENGTH_LONG).show());
     }
 
     @NonNull

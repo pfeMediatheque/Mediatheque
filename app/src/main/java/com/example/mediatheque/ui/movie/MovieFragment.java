@@ -22,7 +22,7 @@ import java.util.Objects;
 
 public class MovieFragment extends Fragment {
 
-    private FragmentMovieBinding binding;
+    FragmentMovieBinding binding;
 
     private FirebaseFirestore db;
     private MovieAdapter movieAdapter;
