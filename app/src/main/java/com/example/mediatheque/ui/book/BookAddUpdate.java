@@ -1,6 +1,5 @@
 package com.example.mediatheque.ui.book;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,9 +7,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.mediatheque.MainActivity;
 import com.example.mediatheque.R;
 import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -99,7 +102,7 @@ public class BookAddUpdate extends AppCompatActivity implements View.OnClickList
 
             String idBook = updateIdBook;
 
-            db.collection("bookCollection").document(idBook).update("TitleOfTheBook",TitleOfTheBook,"NameOfTheAuthor",NameOfTheAuthor,"FirstNameOfTheAuthor",FirstNameOfTheAuthor,"TypeOfTheBook",TypeOfTheBook,"NumberOfPages",NumberOfPages,"PublishersName",PublishersName,"DateOfPublication",DateOfPublication)
+            db.collection("bookCollection").document(idBook).update("TitleOfTheBook",TitleOfTheBook,"NameOfTheAuthor",NameOfTheAuthor,"FirstNameOfTheAuthor",FirstNameOfTheAuthor,"TypeOfTheBook",TypeOfTheBook,"NumberOfPages",NumberOfPages,"PublishersName",PublishersName,"DateOfPublication",DateOfPublication,"search",TitleOfTheBook.toLowerCase())
                     .addOnCompleteListener(task -> {
                         Toast.makeText(BookAddUpdate.this, "The book has been successfully updated.", Toast.LENGTH_LONG).show();
                         startActivity(new Intent(BookAddUpdate.this, MainActivity.class));
@@ -160,6 +163,8 @@ public class BookAddUpdate extends AppCompatActivity implements View.OnClickList
                 mapBook.put("NumberOfPages",NumberOfPages);
                 mapBook.put("PublishersName",PublishersName);
                 mapBook.put("DateOfPublication",DateOfPublication);
+
+                mapBook.put("search",TitleOfTheBook.toLowerCase());
 
                 db.collection("bookCollection").document(idBook).set(mapBook)
                         .addOnSuccessListener(documentReference -> {

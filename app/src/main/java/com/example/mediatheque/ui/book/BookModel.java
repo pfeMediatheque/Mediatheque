@@ -2,7 +2,14 @@ package com.example.mediatheque.ui.book;
 
 public class BookModel {
 
-    String idBook,textViewTitleOfTheBook_cardView, textViewNameOfTheAuthor_cardView, textViewFirstNameOfTheAuthor_cardView, textViewTypeOfTheBook_cardView, textViewNumberOfPages_cardView, textViewPublishersName_cardView, textViewDateOfPublication_cardView;
+    final String idBook;
+    final String textViewTitleOfTheBook_cardView;
+    final String textViewNameOfTheAuthor_cardView;
+    final String textViewFirstNameOfTheAuthor_cardView;
+    final String textViewTypeOfTheBook_cardView;
+    final String textViewNumberOfPages_cardView;
+    final String textViewPublishersName_cardView;
+    final String textViewDateOfPublication_cardView;
 
     public BookModel(String idBook, String textViewTitleOfTheBook_cardView, String textViewNameOfTheAuthor_cardView, String textViewFirstNameOfTheAuthor_cardView, String textViewTypeOfTheBook_cardView, String textViewNumberOfPages_cardView, String textViewPublishersName_cardView, String textViewDateOfPublication_cardView) {
         this.idBook = idBook;

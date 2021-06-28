@@ -13,7 +13,7 @@ import com.example.mediatheque.databinding.FragmentMusicBinding;
 
 public class MusicFragment extends Fragment {
 
-    private FragmentMusicBinding binding;
+    FragmentMusicBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentMusicBinding.inflate(inflater, container, false);

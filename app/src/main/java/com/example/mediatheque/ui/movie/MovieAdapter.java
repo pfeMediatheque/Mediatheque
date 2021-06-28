@@ -78,7 +78,13 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView textViewTitleOfTheMovie_cardView, textViewNameOfTheDirector_cardView, textViewFirstNameOfTheDirector_cardView, textViewTypeOfTheMovie_cardView, textViewDurationOfTheMovie_cardView, textViewProductionCompanies_cardView, textViewReleaseDate_cardView;
+        final TextView textViewTitleOfTheMovie_cardView;
+        final TextView textViewNameOfTheDirector_cardView;
+        final TextView textViewFirstNameOfTheDirector_cardView;
+        final TextView textViewTypeOfTheMovie_cardView;
+        final TextView textViewDurationOfTheMovie_cardView;
+        final TextView textViewProductionCompanies_cardView;
+        final TextView textViewReleaseDate_cardView;
 
         public MyViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);

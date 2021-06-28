@@ -79,7 +79,13 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MyViewHolder> 
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView textViewTitleOfTheBook_cardView, textViewNameOfTheAuthor_cardView, textViewFirstNameOfTheAuthor_cardView, textViewTypeOfTheBook_cardView, textViewNumberOfPages_cardView, textViewPublishersName_cardView, textViewDateOfPublication_cardView;
+        final TextView textViewTitleOfTheBook_cardView;
+        final TextView textViewNameOfTheAuthor_cardView;
+        final TextView textViewFirstNameOfTheAuthor_cardView;
+        final TextView textViewTypeOfTheBook_cardView;
+        final TextView textViewNumberOfPages_cardView;
+        final TextView textViewPublishersName_cardView;
+        final TextView textViewDateOfPublication_cardView;
 
         public MyViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);

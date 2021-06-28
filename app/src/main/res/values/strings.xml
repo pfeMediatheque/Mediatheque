@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">Mediatheque</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
@@ -46,8 +44,23 @@
     <string name="movie_title">Movie title</string>
     <string name="type_of_movie">Type of movie</string>
     <string name="duration_of_the_movie">Duration of the movie</string>
-    <string name="date_of_first_viewing">Date of first viewing</string>
     <string name="production_companies">Production companies</string>
     <string name="release_date">Release date</string>
+
+    <string name="title_book_cardview">Title</string>
+    <string name="nameoftheauthor_book_cardview">NameOfTheAuthor</string>
+    <string name="firstnameoftheauthor_book_cardview">FirstNameOfTheAuthor</string>
+    <string name="typeofthebook_book_cardview">TypeOfTheBook</string>
+    <string name="publishersname_book_cardview">PublishersName</string>
+    <string name="dateofpublication_book_cardview">DateOfPublication</string>
+    <string name="datepublication_book_cardview">DatePublication</string>
+
+    <string name="title_movie_cardview">Title</string>
+    <string name="nameofthedirector_movie_cardview">NameOfTheDirector</string>
+    <string name="firstnameofthedirector_movie_cardview">FirstNameOfTheDirector</string>
+    <string name="typeofthemovie_movie_cardview">TypeOfTheMovie</string>
+    <string name="productioncompanies_movie_cardview">ProductionCompanies</string>
+    <string name="releasedate_movie_cardview">ReleaseDate</string>
+    <string name="durationofthemovie_movie_cardview">DurationOfTheMovie</string>
 
 </resources>

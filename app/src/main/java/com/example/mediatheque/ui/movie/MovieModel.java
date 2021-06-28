@@ -2,7 +2,14 @@ package com.example.mediatheque.ui.movie;
 
 public class MovieModel {
 
-    String idMovie, textViewTitleOfTheMovie_cardView, textViewNameOfTheDirector_cardView, textViewFirstNameOfTheDirector_cardView, textViewTypeOfTheMovie_cardView, textViewDurationOfTheMovie_cardView, textViewProductionCompanies_cardView, textViewReleaseDate_cardView;
+    final String idMovie;
+    final String textViewTitleOfTheMovie_cardView;
+    final String textViewNameOfTheDirector_cardView;
+    final String textViewFirstNameOfTheDirector_cardView;
+    final String textViewTypeOfTheMovie_cardView;
+    final String textViewDurationOfTheMovie_cardView;
+    final String textViewProductionCompanies_cardView;
+    final String textViewReleaseDate_cardView;
 
     public MovieModel(String idMovie, String textViewTitleOfTheMovie_cardView, String textViewNameOfTheDirector_cardView, String textViewFirstNameOfTheDirector_cardView, String textViewTypeOfTheMovie_cardView, String textViewDurationOfTheMovie_cardView, String textViewProductionCompanies_cardView, String textViewReleaseDate_cardView) {
         this.idMovie = idMovie;
