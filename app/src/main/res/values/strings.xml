@@ -63,4 +63,24 @@
     <string name="releasedate_movie_cardview">ReleaseDate</string>
     <string name="durationofthemovie_movie_cardview">DurationOfTheMovie</string>
 
+    <string name="add_a_music">Add a music</string>
+    <string name="name_of_the_artist">Name of the artist</string>
+    <string name="firstname_of_the_artist">Firstname of the artist</string>
+    <string name="music_title">Music title</string>
+    <string name="album_title">Album title</string>
+    <string name="genre_of_music">Genre of music</string>
+    <string name="duration_of_the_music">Duration of the music</string>
+    <string name="name_of_the_label">Name of the label</string>
+    <string name="music_release_date">Music release date</string>
+
+    <string name="title_music_cardview">Title</string>
+    <string name="albumtitle_music_cardview">AlbumTitle</string>
+    <string name="slash_music_cardview">/</string>
+    <string name="nameoftheartist_music_cardview">NameOfTheArtist</string>
+    <string name="firstnameoftheartist_music_cardview">FirstNameOfTheArtist</string>
+    <string name="genreofmusic_music_cardview">GenreOfMusic</string>
+    <string name="durationofthemusic_music_cardview">DurationOfTheMusic</string>
+    <string name="nameofthelabel_music_cardview">NameOfTheLabel</string>
+    <string name="musicreleasedate_music_cardview">MusicReleaseDate</string>
+
 </resources>
