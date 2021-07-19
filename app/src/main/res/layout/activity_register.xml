@@ -9,13 +9,15 @@
     android:gravity="center"
     android:padding="50dp">
 
-  <de.hdodenhof.circleimageview.CircleImageView
-      android:id="@+id/profileImage_RegisterPage"
-      android:layout_width="150dp"
-      android:layout_height="150dp"
-      android:layout_marginBottom="60dp"
-      android:src="@drawable/avatar">
-  </de.hdodenhof.circleimageview.CircleImageView>
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:textAlignment="center"
+      android:text="@string/create_account"
+      android:textSize="45sp"
+      android:layout_marginBottom="80dp"
+      android:gravity="center_horizontal">
+  </TextView>
 
   <com.google.android.material.textfield.TextInputLayout
       android:layout_width="match_parent"

@@ -22,6 +22,8 @@
     <string name="confirm_password">Confirm password</string>
     <string name="already_registered">Already registered ?</string>
 
+    <string name="create_account">Create an account</string>
+
     <string name="title_resetPassword">Reset your password</string>
     <string name="reset_it">Reset it</string>
     <string name="already_reset">already reset ?</string>
@@ -43,7 +45,7 @@
     <string name="firstname_of_the_director">Firstname of the director</string>
     <string name="movie_title">Movie title</string>
     <string name="type_of_movie">Type of movie</string>
-    <string name="duration_of_the_movie">Duration of the movie</string>
+    <string name="duration_of_the_movie">Duration of the film (in minutes)</string>
     <string name="production_companies">Production companies</string>
     <string name="release_date">Release date</string>
 
@@ -69,7 +71,7 @@
     <string name="music_title">Music title</string>
     <string name="album_title">Album title</string>
     <string name="genre_of_music">Genre of music</string>
-    <string name="duration_of_the_music">Duration of the music</string>
+    <string name="duration_of_the_music">Music duration (in seconds)</string>
     <string name="name_of_the_label">Name of the label</string>
     <string name="music_release_date">Music release date</string>
 

@@ -68,7 +68,7 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MyViewHolder
         holder.textViewNameOfTheArtist_cardView.setText(musicModelList.get(position).getTextViewNameOfTheArtist_cardView());
         holder.textViewFirstNameOfTheArtist_cardView.setText(musicModelList.get(position).getTextViewFirstNameOfTheArtist_cardView());
         holder.textViewGenreOfMusic_cardView.setText(musicModelList.get(position).getTextViewGenreOfMusic_cardView());
-        holder.textViewDurationOfTheMusic_cardView.setText(String.format("%s minutes", musicModelList.get(position).getTextViewDurationOfTheMusic_cardView()));
+        holder.textViewDurationOfTheMusic_cardView.setText(String.format("%s seconds", musicModelList.get(position).getTextViewDurationOfTheMusic_cardView()));
         holder.textViewNameOfTheLabel_cardView.setText(musicModelList.get(position).getTextViewNameOfTheLabel_cardView());
         holder.textViewMusicReleaseDate_cardView.setText(musicModelList.get(position).getTextViewMusicReleaseDate_cardView());
     }
