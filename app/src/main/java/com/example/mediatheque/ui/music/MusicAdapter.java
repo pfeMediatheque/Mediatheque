@@ -50,6 +50,8 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MyViewHolder
                 .addOnCompleteListener(task -> {
                     Toast.makeText(context, "The music has been successfully deleted.", Toast.LENGTH_LONG).show();
                     musicModelList.remove(position);
+                    this.notifyItemRemoved(position);
+                    this.notifyItemRangeChanged(position,musicModelList.size());
                 }).addOnFailureListener(e -> Toast.makeText(context, "Deleting music failed - Connection error with the database.", Toast.LENGTH_LONG).show());
     }
 

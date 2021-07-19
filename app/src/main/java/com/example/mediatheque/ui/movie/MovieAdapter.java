@@ -49,6 +49,8 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
                 .addOnCompleteListener(task -> {
                     Toast.makeText(context, "The movie has been successfully deleted.", Toast.LENGTH_LONG).show();
                     movieModelList.remove(position);
+                    this.notifyItemRemoved(position);
+                    this.notifyItemRangeChanged(position,movieModelList.size());
                 }).addOnFailureListener(e -> Toast.makeText(context, "Deleting movie failed - Connection error with the database.", Toast.LENGTH_LONG).show());
     }
 

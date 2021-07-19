@@ -49,6 +49,8 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MyViewHolder> 
                 .addOnCompleteListener(task -> {
                     Toast.makeText(context, "The book has been successfully deleted.", Toast.LENGTH_LONG).show();
                     bookModelList.remove(position);
+                    this.notifyItemRemoved(position);
+                    this.notifyItemRangeChanged(position,bookModelList.size());
                 }).addOnFailureListener(e -> Toast.makeText(context, "Deleting book failed - Connection error with the database.", Toast.LENGTH_LONG).show());
     }
 

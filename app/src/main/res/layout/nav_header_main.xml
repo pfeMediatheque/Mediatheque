@@ -17,19 +17,11 @@
         android:layout_width="76dp"
         android:layout_height="69dp"
         android:contentDescription="@string/nav_header_desc"
+        android:layout_marginBottom="20dp"
         app:srcCompat="@drawable/avatar" />
 
     <TextView
-        android:id="@+id/userNameApplication"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:paddingTop="5dp"
-        android:text="@string/nav_header_title"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-
-    <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewEmailUser_NavHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/nav_header_subtitle" />

@@ -69,8 +69,6 @@ public class BookFragment extends Fragment {
                 }).addOnFailureListener(e -> Toast.makeText(getActivity(), "Display error.Something went wrong.", Toast.LENGTH_LONG).show());
     }
 
-
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();

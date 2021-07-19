@@ -9,9 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.mediatheque.MainActivity;
 import com.example.mediatheque.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -49,7 +47,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             if (Objects.requireNonNull(mailVerificationCurrentUser).isEmailVerified()){                             // if the user has verified his email address
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));                    // launches the application directly on the main page - the user will not have to log in each time
             }else {
-                Toast.makeText(LoginActivity.this,                                           // show a successfully message
+                Toast.makeText(LoginActivity.this,                                                          // show a successfully message
                         "Please verify your email address to stay connect on the application.",
                         Toast.LENGTH_LONG).show();
                 mailVerificationCurrentUser.sendEmailVerification();
@@ -99,7 +97,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         lAuth.signInWithEmailAndPassword(email,pwd).addOnCompleteListener(task -> {                                // connect the user with his email and password
             if (task.isSuccessful()) {                                                                             // when the task was successfully finish
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));                  // redirects the user to the main page
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));                   // redirects the user to the main page
             }else{                                                                                                 // if the information provided does not correspond to any registered account
                 Toast.makeText(LoginActivity.this,                                                         // show a failure message
                         "Please check the information provided.",

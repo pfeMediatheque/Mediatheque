@@ -1,6 +1,5 @@
 package com.example.mediatheque.ui.connection;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.mediatheque.R;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -65,13 +67,13 @@ public class ResetPasswordActivity extends AppCompatActivity implements View.OnC
         }
 
         rAuth.sendPasswordResetEmail(emailForResetPassword).addOnCompleteListener(task -> {
-            if (task.isSuccessful()){                                                                                  // when the task was successfully finish
-                Toast.makeText(ResetPasswordActivity.this,                                                     // show a successfully message
+            if (task.isSuccessful()){                                                                               // when the task was successfully finish
+                Toast.makeText(ResetPasswordActivity.this,                                                  // show a successfully message
                         "Please check your email address.",
                         Toast.LENGTH_LONG).show();
                 startActivity(new Intent(ResetPasswordActivity.this, LoginActivity.class));
-            }else{                                                                                                     // if the email address does not exist
-                Toast.makeText(ResetPasswordActivity.this,                                                     // show a error message
+            }else{                                                                                                  // if the email address does not exist
+                Toast.makeText(ResetPasswordActivity.this,                                                  // show a error message
                         "This email address does not exist, please check your information.",
                         Toast.LENGTH_LONG).show();
             }
