@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.mediatheque.MainActivity;
@@ -45,11 +46,14 @@ public class BookAddUpdate extends AppCompatActivity implements View.OnClickList
         Button buttonAdd_AddBook = findViewById(R.id.buttonAdd_AddBook);
         buttonAdd_AddBook.setOnClickListener(this);
 
+        TextView textTitleBook = findViewById(R.id.titleBook);
+
         db = FirebaseFirestore.getInstance();
 
         Bundle bundle = getIntent().getExtras();
         if(bundle != null){
             buttonAdd_AddBook.setText("Update");
+            textTitleBook.setText("Update a book");
 
             updateIdBook = bundle.getString("updateIdBook");
             String updateTitleOfTheBook = bundle.getString("updateTitleOfTheBook");

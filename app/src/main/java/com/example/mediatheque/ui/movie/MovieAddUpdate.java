@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.mediatheque.MainActivity;
@@ -45,11 +46,14 @@ public class MovieAddUpdate extends AppCompatActivity implements View.OnClickLis
         Button buttonAdd_AddMovie = findViewById(R.id.buttonAdd_AddMovie);
         buttonAdd_AddMovie.setOnClickListener(this);
 
+        TextView textTitleMovie = findViewById(R.id.titleMovie);
+
         db = FirebaseFirestore.getInstance();
 
         Bundle bundle = getIntent().getExtras();
         if(bundle != null){
             buttonAdd_AddMovie.setText("Update");
+            textTitleMovie.setText("Update a movie");
 
             updateIdMovie = bundle.getString("updateIdMovie");
             String updateTitleOfTheMovie = bundle.getString("updateTitleOfTheMovie");

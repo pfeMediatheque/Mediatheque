@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.mediatheque.MainActivity;
@@ -46,11 +47,14 @@ public class MusicAddUpdate extends AppCompatActivity implements View.OnClickLis
         Button buttonAdd_AddMusic = findViewById(R.id.buttonAdd_AddMusic);
         buttonAdd_AddMusic.setOnClickListener(this);
 
+        TextView textTitleMusic = findViewById(R.id.titleMusic);
+
         db = FirebaseFirestore.getInstance();
 
         Bundle bundle = getIntent().getExtras();
         if(bundle != null){
             buttonAdd_AddMusic.setText("Update");
+            textTitleMusic.setText("Update a music");
 
             updateIdMusic = bundle.getString("updateIdMusic");
             String updateTitleOfTheMusic = bundle.getString("updateTitleOfTheMusic");
